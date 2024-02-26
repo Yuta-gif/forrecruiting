@@ -1,0 +1,12 @@
+.container {
+  
+  overflow:visible;
+  display: flex;
+}
+
+.textstyle{
+  white-space:nowrap;
+  color:grey;
+  font-size:100px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
