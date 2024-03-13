@@ -62,7 +62,7 @@ const Animating_nums = () => {
               <p>平均年齢</p>
               <motion.div ref={ref}>
                 {counters.filter(counter => counter.id === 1).map((counter) => (
-                  <CounterDisplay counter={counter} />
+                  <CounterDisplay counter={counter} key={counter.id}/>
                 ))}
               </motion.div>
             </div>
@@ -70,7 +70,7 @@ const Animating_nums = () => {
               <p>離職率</p>
               <motion.div ref={ref}>
                 {counters.filter(counter => counter.id === 2).map((counter) => (
-                  <CounterDisplay counter={counter} />
+                  <CounterDisplay counter={counter} key={counter.id}/>
                 ))}
               </motion.div>
             </div>
@@ -95,7 +95,7 @@ const Animating_nums = () => {
         <p class="mr-2">男性</p>
         <motion.div ref={ref}>
           {counters.filter(counter => counter.id === 3).map((counter) => (
-            <CounterDisplay counter={counter} style={{ fontSize: '48px', lineHeight: '1' }} />
+            <CounterDisplay counter={counter} style={{ fontSize: '48px', lineHeight: '1' }} key={counter.id}/>
           ))}
         </motion.div>
         <p class="ml-2">%</p>
@@ -104,7 +104,7 @@ const Animating_nums = () => {
         <p class="mr-2">女性</p>
         <motion.div ref={ref}>
           {counters.filter(counter => counter.id === 4).map((counter) => (
-            <CounterDisplay counter={counter} style={{ fontSize: '48px', lineHeight: '1' }} />
+            <CounterDisplay counter={counter} style={{ fontSize: '48px', lineHeight: '1' }} key={counter.id}/>
           ))}
         </motion.div>
         <p class="ml-2">%</p>
@@ -120,7 +120,7 @@ const Animating_nums = () => {
               <p>育休取得率</p>
               <motion.div ref={ref}>
                 {counters.filter(counter => counter.id === 5).map((counter) => (
-                  <CounterDisplay counter={counter} />
+                  <CounterDisplay counter={counter} key={counter.id}/>
                 ))}
               </motion.div>
             </div>
@@ -128,7 +128,7 @@ const Animating_nums = () => {
               <p>復職率</p>
               <motion.div ref={ref}>
                 {counters.filter(counter => counter.id === 6).map((counter) => (
-                  <CounterDisplay counter={counter} />
+                  <CounterDisplay counter={counter} key={counter.id}/>
                 ))}
               </motion.div>
             </div>
@@ -136,7 +136,7 @@ const Animating_nums = () => {
               <p>年間平均残業時間</p>
               <motion.div ref={ref}>
                 {counters.filter(counter => counter.id === 7).map((counter) => (
-                  <CounterDisplay counter={counter} />
+                  <CounterDisplay counter={counter} key={counter.id}/>
                 ))}
               </motion.div>
             </div>
@@ -144,7 +144,7 @@ const Animating_nums = () => {
               <p>研修受講率</p>
               <motion.div ref={ref}>
                 {counters.filter(counter => counter.id === 8).map((counter) => (
-                  <CounterDisplay counter={counter} />
+                  <CounterDisplay counter={counter} key={counter.id}/>
                 ))}
               </motion.div>
             </div>
@@ -160,7 +160,7 @@ const Animating_nums = () => {
                 </div>
                 <motion.div className="z-10 " ref={ref}>
                   {counters.filter(counter => counter.id === 9).map((counter) => (
-                    <CounterDisplay counter={counter} />
+                    <CounterDisplay counter={counter} key={counter.id}/>
                   ))}
                 </motion.div>
                 <p className='relative z-10'>カ国以上の国籍を<br />持つ社員が在籍</p>
@@ -172,7 +172,7 @@ const Animating_nums = () => {
               </div>
               <motion.div ref={ref}>
                 {counters.filter(counter => counter.id === 10).map((counter) => (
-                  <CounterDisplay counter={counter} />
+                  <CounterDisplay counter={counter}key={counter.id}/>
                 ))}
               </motion.div>
             </div>

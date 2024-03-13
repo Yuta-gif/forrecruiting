@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
+
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,11 +11,13 @@ const Header = () => {
 
   return (
     <div className="ml-[5%] mx-auto absolute top-0 left-0 right-0 pt-8 pb-8 z-50 lg:flex items-center justify-between">
-      <a className="flex" href="/">
+      <Link href="/">
+      <a className="flex" >
         <img alt="太光設備株式会社" fetchpriority="high" width="60" height="75" decoding="async" data-nimg="1" className="w-auto" style={{color: "transparent"}} 
         srcSet="/_next/image?url=%2Fimages%2Flogo2.webp&amp;w=64&amp;q=75 1x, /_next/image?url=%2Fimages%2Flogo2.webp&amp;w=128&amp;q=75 2x" 
         src="/_next/image?url=%2Fimages%2Flogo2.webp&amp;w=128&amp;q=75" />
       </a>
+      </Link>
         
       
       <ul className="hidden lg:flex items-center">

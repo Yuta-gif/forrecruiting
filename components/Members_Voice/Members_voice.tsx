@@ -3,6 +3,7 @@ import { useInView } from 'react-intersection-observer';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import { motion, useAnimation } from 'framer-motion';
+import Link from 'next/link';
 
 const MembersVoice = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -63,13 +64,13 @@ const MembersVoice = () => {
       <div className="bg-gray-100 mx-auto md:max-w-[80%] max-w-[95%] h-full absolute inset-y-0 left-0 right-0 z-0"></div>
       <div className="relative z-10">
         <div className="md:px-20 px-5 pt-10 pc:pt-20 pb-2 md:pb-10 ml-[10%]">
-          <h2 className="pc:text-[70px] font-cinzel text-xl">Member's Voice</h2>
+          <h2 className="pc:text-[70px] font-cinzel text-xl">Member&apos;s Voice</h2>
           <div className="md:flex justify-between">
             <div className="flex items-center font-cinzel">
               <div className="w-10 border-t-2 border-gray-500 mr-3"></div>
               <p>社員インタビュー</p>
             </div>
-            <div className="flex items-center mr-[10%] hover:underline mt-5 md:mt-0 ml-5">
+            <div className="flex items-center mr-[10%] hoverc:underline mt-5 md:mt-0 ml-5">
               一覧を見る
               <svg
                 stroke="currentColor"
@@ -136,12 +137,14 @@ const MembersVoice = () => {
           >
             {members.map((member, index) => (
               <SwiperSlide key={index}>
-                <a href="/">
+                <Link href="/">
+                <a >
                   <div className="h-auto w-[415px] bg-white border-2">
                     <img src={member.image} alt={member.name} width={415} height={519} />
                     <p className="py-3 pl-3 font-cinzel text-left">{member.name}</p>
                   </div>
                 </a>
+                </Link>
               </SwiperSlide>
             ))}
           </Swiper>
