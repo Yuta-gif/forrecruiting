@@ -1,13 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore from 'swiper';
 import 'swiper/swiper-bundle.css';
 import { motion, useAnimation } from 'framer-motion';
 import Link from 'next/link';
 
 const MembersVoice = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const swiperRef = useRef(null);
+  const swiperRef = useRef<SwiperCore | null>(null);
   const controls = useAnimation();
   const [ref, inView] = useInView({
     threshold: 0.1,
@@ -22,26 +23,34 @@ const MembersVoice = () => {
 
   const variants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1 } }, // アニメーションの現れる期間をゆっくりとするために、durationを1秒に設定
+    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
   };
 
   useEffect(() => {
-    if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.on('slideChange', () => {
-        setCurrentSlide(swiperRef.current.swiper.realIndex);
+    const swiperInstance = swiperRef.current;
+    if (swiperInstance) {
+      swiperInstance.on('slideChange', () => {
+        setCurrentSlide(swiperInstance.realIndex);
       });
     }
+    return () => {
+      if (swiperInstance) {
+        swiperInstance.off('slideChange');
+      }
+    };
   }, []);
 
   const handlePrevSlide = () => {
-    if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slidePrev();
+    const swiperInstance = swiperRef.current;
+    if (swiperInstance) {
+      swiperInstance.slidePrev();
     }
   };
 
   const handleNextSlide = () => {
-    if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slideNext();
+    const swiperInstance = swiperRef.current;
+    if (swiperInstance) {
+      swiperInstance.slideNext();
     }
   };
 
@@ -125,7 +134,9 @@ const MembersVoice = () => {
             </div>
           </div>
           <Swiper
-            ref={swiperRef}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
             slidesPerView={1}
             spaceBetween={10}
             breakpoints={{
@@ -138,12 +149,12 @@ const MembersVoice = () => {
             {members.map((member, index) => (
               <SwiperSlide key={index}>
                 <Link href="/">
-                <a >
-                  <div className="h-auto w-[415px] bg-white border-2">
-                    <img src={member.image} alt={member.name} width={415} height={519} />
-                    <p className="py-3 pl-3 font-cinzel text-left">{member.name}</p>
-                  </div>
-                </a>
+                  <a>
+                    <div className="h-auto w-[415px] bg-white border-2">
+                      <img src={member.image} alt={member.name} width={415} height={519} />
+                      <p className="py-3 pl-3 font-cinzel text-left">{member.name}</p>
+                    </div>
+                  </a>
                 </Link>
               </SwiperSlide>
             ))}

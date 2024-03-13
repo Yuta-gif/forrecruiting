@@ -9,8 +9,9 @@ const AnimatedText = () => {
   const textContainerRef1 = useRef<HTMLDivElement>(null);
   const textRef2 = useRef<HTMLDivElement>(null);
   const textContainerRef2 = useRef<HTMLDivElement>(null);
-  const timelineRef1 = useRef<GSAPTimeline>(null);
-  const timelineRef2 = useRef<GSAPTimeline>(null);
+  const timelineRef1 = useRef<gsap.core.Timeline | null>(null);
+  const timelineRef2 = useRef<gsap.core.Timeline | null>(null);
+  
 
   useEffect(() => {
     // nullチェックを追加
@@ -105,7 +106,7 @@ const AnimatedText = () => {
           <span className="text-8xl font-bold mx-5 text-gray-300 whitespace-nowrap">Animated Text</span>
           <span className="text-8xl font-bold mx-5 text-gray-300 whitespace-nowrap">Animated Text</span>
           <span className="text-8xl font-bold mx-5 text-gray-300 whitespace-nowrap">Animated Text</span>
-          
+
           {/* More spans */}
         </div>
       </div>
