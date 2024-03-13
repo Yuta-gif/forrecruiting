@@ -6,32 +6,28 @@ function News() {
       <div className="absolute hidden lg:block -top-20 right-10">
         <Image
           alt="太光設備株式会社"
-          fetchPriority="high"
+          priority
           width={600}
           height={300}
-          decoding="async"
-          data-nimg="1"
           className="w-auto"
           style={{ color: 'transparent' }}
           src="/images/news1.webp"
-srcSet="/_next/image?url=%2Fimages%2Fnews1.webp&amp;w=640&amp;q=75 1x, /_next/image?url=%2Fimages%2Fnews1.webp&amp;w=1200&amp;q=75 2x"
+          sizes="(max-width: 600px) 100vw, 600px"
         />
       </div>
       <div className="absolute top-60 hidden lg:block left-0">
         <Image
           alt="太光設備株式会社"
-          fetchPriority="high"
+          priority
           width={300}
           height={100}
-          decoding="async"
-          data-nimg="1"
           className="w-auto"
           style={{ color: 'transparent' }}
           src="/images/news2.webp"
-srcSet="/_next/image?url=%2Fimages%2Fnews2.webp&amp;w=384&amp;q=75 1x, /_next/image?url=%2Fimages%2Fnews2.webp&amp;w=640&amp;q=75 2x"
+          sizes="(max-width: 300px) 100vw, 300px"
         />
       </div>
-      <div className="lg:ml-[30%] lg:flex max-w-[90%] mx-auto lg:w-full pt-10 lg:pt-80　lg:mt-10">
+      <div className="lg:ml-[30%] lg:flex max-w-[90%] mx-auto lg:w-full pt-10 lg:pt-80 lg:mt-10">
         <div className="mr-5">
           <h2 className="text-2xl font-cinzel lg:text-[70px] text-left text-white">News</h2>
           <div className="flex items-center font-cinzel">
