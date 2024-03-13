@@ -5,14 +5,19 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const AnimatedText = () => {
-  const textRef1 = useRef(null);
-  const textContainerRef1 = useRef(null);
-  const textRef2 = useRef(null);
-  const textContainerRef2 = useRef(null);
-  const timelineRef1 = useRef(null);
-  const timelineRef2 = useRef(null);
+  const textRef1 = useRef<HTMLDivElement>(null);
+  const textContainerRef1 = useRef<HTMLDivElement>(null);
+  const textRef2 = useRef<HTMLDivElement>(null);
+  const textContainerRef2 = useRef<HTMLDivElement>(null);
+  const timelineRef1 = useRef<GSAPTimeline>(null);
+  const timelineRef2 = useRef<GSAPTimeline>(null);
 
   useEffect(() => {
+    // nullチェックを追加
+    if (!textRef1.current || !textContainerRef1.current || !textRef2.current || !textContainerRef2.current) {
+      return;
+    }
+
     const text1 = textRef1.current;
     const textContainer1 = textContainerRef1.current;
     const textWidth1 = text1.offsetWidth;
@@ -81,14 +86,16 @@ const AnimatedText = () => {
   }, []);
 
   return (
-    <div  >
-      <div ref={textContainerRef1} className="overflow-hidden ">
+    <div>
+      <div ref={textContainerRef1} className="overflow-hidden">
         <div ref={textRef1} className="inline-block">
           {/* Text spans */}
           <span className="text-8xl font-bold mx-5 text-gray-300 whitespace-nowrap">Animated Text</span>
           <span className="text-8xl font-bold mx-5 text-gray-300 whitespace-nowrap">Animated Text</span>
           <span className="text-8xl font-bold mx-5 text-gray-300 whitespace-nowrap">Animated Text</span>
           <span className="text-8xl font-bold mx-5 text-gray-300 whitespace-nowrap">Animated Text</span>
+          <span className="text-8xl font-bold mx-5 text-gray-300 whitespace-nowrap">Animated Text</span>
+          {/* More spans */}
         </div>
       </div>
       <div ref={textContainerRef2} className="overflow-hidden whitespace-nowrap">
@@ -98,6 +105,8 @@ const AnimatedText = () => {
           <span className="text-8xl font-bold mx-5 text-gray-300 whitespace-nowrap">Animated Text</span>
           <span className="text-8xl font-bold mx-5 text-gray-300 whitespace-nowrap">Animated Text</span>
           <span className="text-8xl font-bold mx-5 text-gray-300 whitespace-nowrap">Animated Text</span>
+          
+          {/* More spans */}
         </div>
       </div>
     </div>
